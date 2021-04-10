@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Versatile Bull-Stock Prediction App</title>
+<link rel = "icon" href ="static/img/bull.png" type = "image/x-icon"> 
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+<link href="static/css/hooli.css" rel="stylesheet">
+<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Styles -->
+<style>
+    body {
+        background-color: #30303d;
+        color: #fff;
+    }
+    
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+    .navbar-nav { 
+        margin-left: auto; 
+    } 
+
+        .bs-example{
+        margin: 20px;
+    }
+</style>
+</head>
+<section class="app_hero">
+    <nav class="navbar navbar-expand-md navbar-dark  sticky-top mt-2" style="background-color: #3f51b5;">
+        <a href="/"><img src="static/img/bull.png" width="70"></a>
+        <a href="/" class="navbar-brand">THE VERSATILE BULL</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/aboutus" class="nav-item nav-link active" target="blank">About-US</a>
+                <a href="/blog" class="nav-item nav-link active" target="blank">Blogs</a>
+                <a href="/contact" class="nav-item nav-link active" target="blank">Contact-US</a>
+                <a href="https://economictimes.indiatimes.com/markets" class="nav-item nav-link active" target="blank">Latest Stock News</a>
+            </div>
+        </div>
+    </nav>
+</section>
+<section class="app__hero" style="height: auto !important;">
+    
+    <video class="app__hero__video" src="static/videos/chartBackground.mp4" loop="" autoplay="" muted=""></video>
+    <div>
+        <div class="row align-middle" style="height: auto !important;">
+            <div>
+                <div class="columns medium-12"><img src="static/img/bull.png" alt="Logo" width="400">
+                    
+                    <h1 class="app__hero__title"><strong>THE VERSATILE BULL STOCK PREDICTION APP</strong></h1>
+                </div>
+                    
+                <script type="text/javascript">
+                    $(window).load(function() {
+                        if ($('#start')[0].type != 'date') $('#start').datepicker();
+                        if ($('#end')[0].type != 'date') $('#end').datepicker();
+                    });
+                </script>
+                <div>
+                    <form method="POST" action="/data" role="form" id="form" style="padding: 30px;">
+                            <div class="form-group">
+                            <label>Enter a Stock Symbol :</label>
+                            <!--input type="text" name="search" placeholder="Symbol: eg. aapl..." required /-->
+
+                            <select class="form-control" name="search" >
+                                <option value="aapl">APPLE</option>
+                                <option value="goog">GOOGLE</option>
+                                <option value="msft">MICROSOFT</option>
+                                <option value="amzn">AMAZON</option>
+                                <option value="amzn">BTC-USD</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Select the source :</label>
+                                <select class="form-control" name="sourcery" >
+                                    <option value="yahoo">Yahoo Finance</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="start">Start date:</label>
+                                <input type="date" id="start" name="trip-start" value="" min="1970-01-01" max="2021-03-29" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="end">End date:</label>
+                                <input type="date" id="end" name="trip-end" value="" min="1970-01-01" max="2021-03-29" required>              
+                            </div>
+                            <div class="form-group">
+                              <button type="submit" value="Submit" class="btn btn-dark">Submit</button>
+                            </div>
+                            
+                    </form>
+                </div>
+            </div>
+        </div>
+</section>
+
+<footer>
+    <section class="app_hero">
+        <nav class="navbar navbar-expand-md navbar-dark  sticky-top mt-2" style="background-color:#3f51b5;">
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="/" class="nav-item nav-link active"></a>
+                    <a href="/" class="nav-item nav-link active"></a>
+                </div>
+            </div>
+        </nav>
+    </section>
+</footer>
+
+<div class="container my-5">
+    <footer class="text-center text-white" style="background-color: #3f51b5">
+      <div class="container">
+        <section class="mt-5">
+          <div class="row text-center d-flex justify-content-center pt-5">
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="/aboutus" class="text-white" target="blank">About us</a>
+              </h6>
+            </div>
+  
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="/" class="text-white" >Products</a>
+              </h6>
+            </div>
+  
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="/blog" class="text-white" target="blank">Blogs</a>
+              </h6>
+            </div>
+  
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="/contact" class="text-white" target="blank">Help</a>
+              </h6>
+            </div>
+  
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="/contact" class="text-white" target="blank">Contact</a>
+              </h6>
+            </div>
+          </div>
+        </section>
+  
+        <hr class="my-5" />
+  
+        <section class="mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+              <p>
+                <strong>
+                    "We belive no price is too low for a bear or too high for a BULL.
+                    We learn everyday but espicially from the experience of others. !! It's Cheaper !!"</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+  
+        <section class="text-center mb-5">
+          <a href="" class="text-white me-4">
+            <i class="fa fa-facebook-f"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fa fa-google"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fa fa-github"></i>
+          </a>
+        </section>
+      </div>
+  
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2020 Copyright:
+        <a class="text-white" href="/"
+           >THE VERSATILE BULL</a
+          >
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
